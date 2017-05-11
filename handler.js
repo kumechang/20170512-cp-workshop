@@ -1,5 +1,15 @@
 'use strict';
 
+var AWS = require('aws-sdk');
+
+AWS.config.update({
+	accessKeyId: 'XXXXX',
+	secretAccessKey: 'XXXXX',
+	region: 'us-east-1'
+});
+
+var s3 = new AWS.S3();
+
 module.exports.hello = (event, context, callback) => {
   const response = {
     statusCode: 200,
@@ -22,4 +32,18 @@ module.exports.bye = (event, context, cb) => {
   }
 
   cb(null, response);
+}
+
+module.exports.connectS3 = (event, context, cb) => {
+
+  var params = {Bucket: 'test20170512', Key: 'hello', Body: 'world'};
+
+  Promise.resolve(0)
+  .then((dummy)=>{
+    s3.putObject(params, (err, data)=>{
+      cb(null, data);
+    });  
+  });
+
+
 }

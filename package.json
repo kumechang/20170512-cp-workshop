@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/kumechang/20170512-cp-workshop/issues"
   },
-  "homepage": "https://github.com/kumechang/20170512-cp-workshop#readme"
+  "homepage": "https://github.com/kumechang/20170512-cp-workshop#readme",
+  "devDependencies": {
+    "aws-sdk": "^2.49.0"
+  }
 }
