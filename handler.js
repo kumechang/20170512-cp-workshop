@@ -9,6 +9,7 @@ AWS.config.update({
 });
 
 var s3 = new AWS.S3();
+var moment = require("moment");
 
 module.exports.hello = (event, context, callback) => {
   const response = {
@@ -45,5 +46,11 @@ module.exports.connectS3 = (event, context, cb) => {
     });  
   });
 
+
+}
+
+module.exports.moment = (event, context, cb) => {
+
+  cb(null, moment().format("YYYY-MM-DD HH:mm:ssZ"));
 
 }
